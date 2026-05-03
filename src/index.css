@@ -22,9 +22,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Light Mode - Clean white and light colors */
 body {
-  background: linear-gradient(135deg, #f0f4ff 0%, #f9f7ff 100%);
+  background: linear-gradient(135deg, #f8f9fa 0%, #f0f2f5 100%);
   min-height: 100vh;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  color: #1f2937;
+}
+
+/* Dark Mode - Sleek grayscale theme */
+html.dark body {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  color: #f5f5f5;
 }
 
 code {
@@ -32,16 +41,41 @@ code {
     monospace;
 }
 
-/* Smooth transitions for interactive elements */
+/* Smooth transitions for all interactive elements */
 button,
-.cursor-pointer {
+.cursor-pointer,
+a {
   transition: all 0.3s ease-in-out;
 }
 
-/* Recharts customizations */
+/* Smooth color transitions throughout the app */
+.bg-white,
+.bg-gray-50,
+.bg-gray-100,
+.bg-blue-50,
+.bg-red-50,
+.bg-yellow-50,
+.bg-green-50,
+.shadow-md,
+.shadow-lg {
+  transition: background-color 0.3s ease-in-out,
+              box-shadow 0.3s ease-in-out,
+              border-color 0.3s ease-in-out;
+}
+
+/* Text color transitions */
+.text-gray-900,
+.text-gray-700,
+.text-gray-600,
+.text-gray-500 {
+  transition: color 0.3s ease-in-out;
+}
+
+/* Recharts customizations - Light Mode */
 .recharts-cartesian-axis-tick text {
   fill: #6b7280;
   font-size: 12px;
+  transition: fill 0.3s ease-in-out;
 }
 
 .recharts-tooltip-wrapper {
@@ -53,4 +87,85 @@ button,
   border: 1px solid #e5e7eb !important;
   border-radius: 8px !important;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+  transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
 }
+
+/* Recharts customizations - Dark Mode */
+html.dark .recharts-cartesian-axis-tick text {
+  fill: #a0a0a0;
+}
+
+html.dark .recharts-default-tooltip {
+  background: #252525 !important;
+  border: 1px solid #3a3a3a !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Chart label colors for dark mode */
+html.dark .recharts-text {
+  fill: #d1d5db !important;
+}
+
+/* Smooth animation for theme transitions */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+html.dark {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Gradient text for headings */
+.gradient-text {
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: all 0.3s ease-in-out;
+}
+
+html.dark .gradient-text {
+  background: linear-gradient(135deg, #9a9a9a 0%, #bfbfbf 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f4ff;
+  transition: background-color 0.3s ease-in-out;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 5px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+html.dark ::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: #4a4a4a;
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: #5a5a5a;
+}
+
