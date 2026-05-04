@@ -23,7 +23,7 @@ import MetricsChart from "./MetricsChart";
 import SummaryCard from "./SummaryCard";
 import ThemeToggle from "./ThemeToggle";
 import { generateInsights, getPriorityInsight, generateSystemSummary } from "../utils/insightEngine";
-import { generateRecommendations, getTopRecommendation } from "../utils/recommendationEngine";
+import { generateRecommendations } from "../utils/recommendationEngine";
 import { mockDeveloperData, historicalData, benchmarks } from "../data/mockData";
 
 // Simple icons for metrics (not using external icon library)
